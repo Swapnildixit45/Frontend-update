@@ -20,7 +20,7 @@ function MensFashion() {
     }, [])
 
     const fetchProducts = async () => {
-        const response = await fetch("http://localhost:8082/catalog/watches");
+        const response = await fetch("http://localhost:8082/catalog/mensFashion");
         const data = await response.json()
         setProducts(data)
         setLoading(false)
