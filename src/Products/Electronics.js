@@ -63,6 +63,7 @@ import Button from "react-bootstrap/Button";
 import Loading from "../Spinner"
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import Footer from "../Footer"
 
 function Electronics() {
     const [products, setProducts] = useState([])
@@ -93,7 +94,7 @@ function Electronics() {
                                             <Card.Subtitle>Rating: {product.stars}</Card.Subtitle>
                                             <Card.Subtitle className="mt-2">{product.price.currency}{product.price.value}</Card.Subtitle>
                                         </Card.Body>
-                                        <Card.Text> 
+                                        <Card.Text>
                                             <OverlayTrigger
                                                 placement="auto"
                                                 delay={{ show: 250, hide: 200 }}
@@ -101,14 +102,18 @@ function Electronics() {
                                             >
                                                 <div className="text-center mb-2"><Button variant="dark">Description</Button></div>
                                             </OverlayTrigger>
-                                        <div className="text-center mb-1"><Button variant="dark">Add to cart</Button></div>
+                                            <div className="text-center mb-1"><Button variant="dark">Add to cart</Button></div>
                                         </Card.Text>
                                     </Card>
                                 </div>
                             </Col>
                         ))}
                     </Row>
-                </div></>
+                </div>
+                <div className="mt-3">
+                    <Footer />
+                </div>
+            </>
         )
     } else {
         return <div className="d-flex justify-content-center align-items-center my-5">

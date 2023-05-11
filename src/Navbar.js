@@ -8,7 +8,6 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import Logo from "./Images/Logo.png"
 import SecNav from './SecNav';
 import { useStateValue } from "./stateProvider";
-import Button from 'react-bootstrap/Button'
 import ModalFunction from './ModalFunction';
 
 function Navbar() {
@@ -47,8 +46,8 @@ function Navbar() {
                 <ul class="dropdown-menu me-auto">
                   {/* <li><a class="dropdown-item" href="/login">{user ? "Logout" : "Login"}</a></li>
                   <li><a class="dropdown-item" href="/signup">Signup</a></li> */}
-                  <li> <Button className='transparent' onClick={user ? () => signOut() : () => navigate("/login")}>{user ? "Logout" : "Login"}</Button></li>
-                  <li> <Button className='transparent' onClick={user ? () => navigate("/profile") : () => navigate("/signup")}>{user ? "Edit Profile" : "SignUp"}</Button></li>
+                  <button class='btn btn-outline-transparent' onClick={user ? () => signOut() : () => navigate("/login")}>{user ? "Logout" : "Login"}</button>
+                  <div><button class='btn btn-outline-transparent' onClick={user ? () => navigate("/profile") : () => navigate("/signup")}>{user ? "Edit Profile" : "SignUp"}</button></div>
                 </ul>
               </li>
             </div>
