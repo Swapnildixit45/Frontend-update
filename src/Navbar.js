@@ -2,11 +2,13 @@ import React from 'react'
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js"
 import SearchIcon from '@mui/icons-material/Search';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import Logo from "./Images/Logo.png"
 import SecNav from './SecNav';
+import ModalFunction from './ModalFunction';
+
+
 
 function Navbar() {
   return (
@@ -36,9 +38,7 @@ function Navbar() {
               </li>
             </div>
             <div class="d-flex">
-              <button class="btn btn-outline-transparent mx-3 mt-3" type="submit" style={{color:"#FFFF"}}>
-                <ShoppingCartIcon />
-              </button>
+                <ModalFunction />
               <button class="btn btn-outline-transparent mx-2 mt-3" type="submit" style={{color:"#FFFF"}}>
                 <FavoriteIcon />
               </button>
