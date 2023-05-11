@@ -12,7 +12,7 @@ import {
   MDBInput,
 } from "mdb-react-ui-kit";
 
-var pname = "Guest";
+
 const Register = () => {
   const navigate = useNavigate();
   // function gotologin() {
@@ -44,8 +44,6 @@ const Register = () => {
     });
     const data = await response.json();
     console.log(data);
-    pname = data.user.username;
-    console.log(pname);
     setTimeout(() => {
       navigate("/");
     }, 1000);
@@ -265,4 +263,4 @@ const Register = () => {
   );
 };
 export default Register;
-export { pname };
+

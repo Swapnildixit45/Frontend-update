@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js"
 import SearchIcon from '@mui/icons-material/Search';
@@ -6,11 +7,23 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import Logo from "./Images/Logo.png"
 import SecNav from './SecNav';
+import { useStateValue } from "./stateProvider";
+import Button from 'react-bootstrap/Button'
 import ModalFunction from './ModalFunction';
 
-
-
 function Navbar() {
+  const [{ user }, dispatch] = useStateValue();
+  const navigate = useNavigate();
+
+  const signOut = () => {
+    dispatch({
+      type: "SET_USER",
+      user: null,
+    });
+
+    localStorage.removeItem("user");
+    navigate("/");
+  };
   return (
     <><nav class="navbar navbar-expand-lg bg-dark variant-dark">
       <div class="container-fluid">
@@ -29,11 +42,13 @@ function Navbar() {
             <div class="d-flex mt-3">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-white" href=" " role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Hello Guest
+                Hello {user ? user : "Guest"}
                 </a>
                 <ul class="dropdown-menu me-auto">
-                  <li><a class="dropdown-item" href="/login">Login</a></li>
-                  <li><a class="dropdown-item" href="/signup">Signup</a></li>
+                  {/* <li><a class="dropdown-item" href="/login">{user ? "Logout" : "Login"}</a></li>
+                  <li><a class="dropdown-item" href="/signup">Signup</a></li> */}
+                  <li> <Button className='transparent' onClick={user ? () => signOut() : () => navigate("/login")}>{user ? "Logout" : "Login"}</Button></li>
+                  <li> <Button className='transparent' onClick={user ? () => navigate("/profile") : () => navigate("/signup")}>{user ? "Edit Profile" : "SignUp"}</Button></li>
                 </ul>
               </li>
             </div>

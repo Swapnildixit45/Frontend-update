@@ -8,6 +8,7 @@ import Mens from "./Products/Mens";
 import Women from "./Products/Women";
 import Jewellery from "./Products/Jewellery";
 import Cosmetics from "./Products/Cosmetics";
+import Profile from "./Profile";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/womenfashion" element={<Women/>}/>
         <Route path="/jewellery" element={<Jewellery/>}/>
         <Route path="/cosmetics" element={<Cosmetics/>}/>
+        <Route path="/profile" element={<Profile/>}/>
       </Routes>
     </div>
   );

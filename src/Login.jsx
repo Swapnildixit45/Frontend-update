@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import LoginVideo from "./Video/Login-video.mp4"
+import { useStateValue } from "./stateProvider";
 
 import {
   MDBBtn,
@@ -18,6 +19,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [{}] = useStateValue();
   const loginUser = async (event) => {
     event.preventDefault();
 
@@ -33,12 +35,16 @@ const Login = () => {
     });
 
     const data = await response.json();
-    console.log(data);
+    console.log(typeof(data));
+    console.log(typeof(data.user));
+    console.log(typeof(data.user.username));
 
     if (data.user) {
       alert("Logged In");
       localStorage.setItem("token", data.user);
       window.location.href = "/";
+      localStorage.setItem("user", (data.user.username));
+      console.log(data.user);
     } else {
       alert("Incorrect Credentials");
     }
