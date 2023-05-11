@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Cart from './Cart/Cart';
+import { CartContext } from './Cart/CartContext';
+import { useContext } from 'react';
+import Badge from 'react-bootstrap/Badge';
 
 function ModalFunction() {
+    const {calculateTotal} = useContext(CartContext);
+    const {cartItems} = useContext(CartContext)
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -11,15 +17,18 @@ function ModalFunction() {
 
     return (
         <>
-            <button class="btn btn-outline-transparent mx-3 mt-3" type="submit" onClick={handleShow} style={{ color: "#FFFF" }}>
-                <ShoppingCartIcon />
+            <button className="btn btn-outline-transparent mx-3 mt-3" type="submit" onClick={handleShow} style={{ color: "#FFFF" }}>
+                <div className='d-flex'><ShoppingCartIcon /><Badge bg='transparent'>{cartItems.length}</Badge></div>
             </button>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Your Cart</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Body>
+                    <Cart/>
+                </Modal.Body>
                 <Modal.Footer>
+                    Total: ₹ {calculateTotal()}
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>

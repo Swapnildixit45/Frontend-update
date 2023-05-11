@@ -54,7 +54,7 @@
 
 // export default Electronics
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -64,10 +64,12 @@ import Loading from "../Spinner"
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Footer from "../Footer"
+import { CartContext } from "../Cart/CartContext";
 
 function Electronics() {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
+    const { addToCart } = useContext(CartContext);
 
     useEffect(() => {
         fetchProducts()
@@ -79,6 +81,11 @@ function Electronics() {
         setProducts(data)
         setLoading(false)
     }
+
+    const handleAddToCart = (product) => {
+        addToCart(product);
+    };
+
     if (!loading) {
         return (
             <><Navbar />
@@ -102,7 +109,7 @@ function Electronics() {
                                             >
                                                 <div className="text-center mb-2"><Button variant="dark">Description</Button></div>
                                             </OverlayTrigger>
-                                            <div className="text-center mb-1"><Button variant="dark">Add to cart</Button></div>
+                                            <div className="text-center mb-1"><Button variant="dark" onClick={()=>handleAddToCart(product)}>Add to cart</Button></div>
                                         </Card.Text>
                                     </Card>
                                 </div>
