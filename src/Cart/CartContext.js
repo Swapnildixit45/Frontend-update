@@ -12,9 +12,9 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems]);
+  const saveCartItemsToLocalStorage = (items) => {
+    localStorage.setItem('cartItems', JSON.stringify(items));
+  };
 
   const addToCart = (product) => {
     const existingItemIndex = cartItems.findIndex(item => item.id === product.id);
@@ -23,8 +23,10 @@ export const CartProvider = ({ children }) => {
       const updatedCartItems = [...cartItems];
       updatedCartItems[existingItemIndex].quantity += 1;
       setCartItems(updatedCartItems);
+      saveCartItemsToLocalStorage(updatedCartItems);
     } else {
       setCartItems(prevCartItems => [...prevCartItems, { ...product, quantity: 1 }]);
+      saveCartItemsToLocalStorage([...cartItems, { ...product, quantity: 1 }]);
     }
   };
 
@@ -32,6 +34,7 @@ export const CartProvider = ({ children }) => {
     setCartItems(prevCartItems =>
       prevCartItems.filter(item => item.id !== productId)
     );
+    saveCartItemsToLocalStorage(cartItems.filter(item => item.id !== productId));
   };
 
   const updateQuantity = (productId, value) => {
@@ -42,10 +45,12 @@ export const CartProvider = ({ children }) => {
 
       return updatedItems.filter((item) => item.quantity > 0);
     });
+    saveCartItemsToLocalStorage(cartItems);
   };
 
   const clearCart = () => {
     setCartItems([]);
+    saveCartItemsToLocalStorage([]);
   };
 
   const calculateTotal = () => {
