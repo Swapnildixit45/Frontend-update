@@ -16,29 +16,21 @@ function ModalFunction() {
     const handleShow = () => setShow(true);
 
     const handleCheckout = async () => {
-        const response = await fetch('http://localhost:4000/checkout', {
+            await fetch('http://localhost:4000/checkout', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                lineItems: cartItems // Pass your line items data here
-            })
+            body: JSON.stringify(cartItems),
+          }).then((response) => {
+            return response.json();
+        }).then((response) => {
+            if(response.url) {
+                window.location.assign(response.url);
+            }
         });
-
-
-
-        if (response.ok) {
-            const { url } = await response.json();
-            // Redirect the user to the returned URL to complete the payment
-            window.location.href = url;
-        } else {
-            // Handle error case
-            console.error('An error occurred during checkout.');
-        }
-    };
-
-
+    }
+    
     return (
         <>
             <button className="btn btn-outline-transparent mx-3 mt-3" type="submit" onClick={handleShow} style={{ color: "#FFFF" }}>
