@@ -8,12 +8,36 @@ import { useContext } from 'react';
 import Badge from 'react-bootstrap/Badge';
 
 function ModalFunction() {
-    const {calculateTotal} = useContext(CartContext);
-    const {cartItems} = useContext(CartContext)
+    const { calculateTotal } = useContext(CartContext);
+    const { cartItems } = useContext(CartContext)
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const handleCheckout = async () => {
+        const response = await fetch('http://localhost:4000/checkout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                lineItems: cartItems // Pass your line items data here
+            })
+        });
+
+
+
+        if (response.ok) {
+            const { url } = await response.json();
+            // Redirect the user to the returned URL to complete the payment
+            window.location.href = url;
+        } else {
+            // Handle error case
+            console.error('An error occurred during checkout.');
+        }
+    };
+
 
     return (
         <>
@@ -25,14 +49,14 @@ function ModalFunction() {
                     <Modal.Title>Your Cart</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Cart/>
+                    <Cart />
                 </Modal.Body>
                 <Modal.Footer>
                     Total: ₹ {calculateTotal()}
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="dark" onClick={handleClose}>
+                    <Button variant="dark" onClick={handleCheckout}>
                         Go to payment page
                     </Button>
                 </Modal.Footer>
