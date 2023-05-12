@@ -10,6 +10,8 @@ import Jewellery from "./Products/Jewellery";
 import Cosmetics from "./Products/Cosmetics";
 import Profile from "./Profile";
 import { CartProvider } from "./Cart/CartContext";
+import Cancel from "./StripePages/Cancel"
+import Success from "./StripePages/Success"
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/jewellery" element={<Jewellery />} />
           <Route path="/cosmetics" element={<Cosmetics />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/canceled" element={<Cancel />} />
+          <Route path="/success" element={<Success />} />
         </Routes>
       </div>
     </CartProvider>
