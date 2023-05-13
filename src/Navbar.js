@@ -13,6 +13,9 @@ import ModalFunction from './ModalFunction';
 function Navbar() {
   const [{ user }, dispatch] = useStateValue();
   const navigate = useNavigate();
+  function gotohome(){
+    navigate('/')
+  }
 
   const signOut = () => {
     dispatch({
@@ -26,7 +29,7 @@ function Navbar() {
   return (
     <><nav class="navbar navbar-expand-lg bg-dark variant-dark">
       <div class="container-fluid">
-        <img class="navbar-brand" src={Logo} alt=' ' width="90" height="80" type="button" href="/"></img>
+        <img class="navbar-brand" src={Logo} alt=' ' width="90" height="80" type="button" onClick={gotohome}></img>
         <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

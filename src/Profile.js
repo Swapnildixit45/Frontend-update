@@ -3,7 +3,7 @@ import "./Profile.css";
 import { useStateValue } from "./stateProvider";
 
 function Profile() {
-    const [{ user, email, country, city }, dispatch] = useStateValue();
+    const [{ user, email, country, city }] = useStateValue();
     let text = user;
     const myArray = text.split(" ");
 

@@ -1,59 +1,3 @@
-// import { useEffect, useState } from "react";
-// import Card from 'react-bootstrap/Card'
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Navbar from "../Navbar";
-// import Button from "react-bootstrap/Button";
-// import Loading from "../Spinner"
-
-// function Electronics() {
-//     const [products, setProducts] = useState([])
-//     const [loading, setLoading] = useState(true)
-
-//     useEffect(() => {
-//         fetchProducts()
-//     }, [])
-
-//     const fetchProducts = async () => {
-//         const response = await fetch("http://localhost:8082/catalog/electronics");
-//         const data = await response.json()
-//         setProducts(data)
-//         setLoading(false)
-//     }
-
-//     if (!loading) {
-//         return (
-//             <><Navbar />
-//                 <div className="d-inline">
-//                     <Row>
-//                     {products.map((product) => (
-//                             <Col>
-//                                 <div className="mt-3 mx-5">
-//                                     <Card style={{ width: '18rem', height: '38rem' }}>
-//                                         <Card.Img variant="top" src={product.image} width="286" height="286" />
-//                                         <Card.Body>
-//                                             <Card.Title className="text-center">{product.title}</Card.Title>
-//                                             <Card.Subtitle>Rating: {product.stars}</Card.Subtitle>
-//                                             <Card.Subtitle className="mt-2">{product.price.currency}{product.price.value}</Card.Subtitle>
-//                                             <Card.Text className="text-left mt-3">{product.description}</Card.Text>
-//                                         </Card.Body>
-//                                         <div className="text-center mb-3"><Button variant="dark">Add to cart</Button></div>
-//                                     </Card>
-//                                 </div>
-//                             </Col>
-//                     ))}
-//                     </Row>
-//                 </div></>
-//         )
-//     } else {
-//         return <div className="d-flex justify-content-center align-items-center my-5">
-//             <Loading />
-//         </div>
-//     }
-// }
-
-// export default Electronics
-
 import { useEffect, useState, useContext } from "react";
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row';
@@ -109,7 +53,7 @@ function Electronics() {
                                             >
                                                 <div className="text-center mb-2"><Button variant="dark">Description</Button></div>
                                             </OverlayTrigger>
-                                            <div className="text-center mb-1"><Button variant="dark" onClick={()=>handleAddToCart(product)}>Add to cart</Button></div>
+                                            <div className="text-center mb-1"><Button variant="dark" onClick={() => handleAddToCart(product)}>Add to cart</Button></div>
                                         </Card.Text>
                                     </Card>
                                 </div>
