@@ -10,11 +10,13 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import Footer from "../Footer";
 import { useContext } from "react";
 import { CartContext } from "../Cart/CartContext";
+import { useStateValue } from "../stateProvider";
 
 function Cosmetics() {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
     const { addToCart } = useContext(CartContext);
+    const [{ searchKeyword }, dispatch] = useStateValue();
 
     useEffect(() => {
         fetchProducts()
@@ -23,7 +25,9 @@ function Cosmetics() {
     const fetchProducts = async () => {
         const response = await fetch("http://localhost:8082/catalog/cosmetics");
         const data = await response.json()
-        setProducts(data)
+        setProducts(data.filter(product => product.title.toLowerCase().search(searchKeyword) !== -1))
+
+        localStorage.setItem("searchKeyword","")
         setLoading(false)
     }
 

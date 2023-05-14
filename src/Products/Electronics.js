@@ -9,20 +9,34 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Footer from "../Footer"
 import { CartContext } from "../Cart/CartContext";
+import { useStateValue } from "../stateProvider";
+
 
 function Electronics() {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
     const { addToCart } = useContext(CartContext);
+    const [{ searchKeyword }, dispatch] = useStateValue();
 
     useEffect(() => {
         fetchProducts()
     }, [])
 
+    const filterProducts = (currentProducts) => {
+        console.log(currentProducts)
+        return currentProducts.filter(product => product.title.toLowerCase().search(searchKeyword) !== -1);
+      };
+      
+      useEffect(() => {
+        setProducts(currentProducts => filterProducts(currentProducts));
+      }, [searchKeyword]);
+      
     const fetchProducts = async () => {
         const response = await fetch("http://localhost:8082/catalog/electronics");
         const data = await response.json()
-        setProducts(data)
+        setProducts(data.filter(product => product.title.toLowerCase().search(searchKeyword) !== -1))
+        
+        localStorage.setItem("searchKeyword","")
         setLoading(false)
     }
 
@@ -36,7 +50,7 @@ function Electronics() {
                 <div className="d-flex mx-3">
                     <Row>
                         {products.map((product) => (
-                            <Col>
+                            <Col key={product.id}>
                                 <div className="d-inline">
                                     <Card style={{ width: '18rem', height: '35rem' }} className="mt-3">
                                         <Card.Img variant="top" src={product.image} width="286" height="286" />

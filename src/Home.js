@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Navbar from './Navbar'
 import Slider from './Slider'
 import Slider2 from './Slider2'
@@ -12,11 +12,14 @@ import Accessories from "./Images/Accessories.png"
 import Watches from "./Images/Watches.png"
 import Beauty from "./Images/Beauty.png"
 import Jewellery from "./Images/Jewellery.png"
+import PropTypes from 'prop-types';
+
 
 function Home() {
+
     return (
         <div>
-            <Navbar />
+            <Navbar/>
             <Slider />
             <h3 className='text-muted mx-5 mt-2'>SHOP BY CATEGORIES</h3>
             <Row>

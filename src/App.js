@@ -12,13 +12,14 @@ import Profile from "./Profile";
 import { CartProvider } from "./Cart/CartContext";
 import Cancel from "./StripePages/Cancel"
 import Success from "./StripePages/Success"
+import React,{useState} from "react";
 
 function App() {
   return (
     <CartProvider>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<RegistrationForm />} />
           <Route path="/electronics" element={<Electronics />} />
