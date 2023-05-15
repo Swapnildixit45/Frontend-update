@@ -69,7 +69,7 @@ function Slider() {
                 </Carousel>
             </Col>
             <Col>
-                <div className="d-flex mt-4 mx-5 mb-3 ml-5">
+                <div className="d-flex mt-4 mb-3">
                     <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={Summer} width="286" height="286" />
                         <Card.Body className="text-center">

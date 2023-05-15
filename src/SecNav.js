@@ -11,7 +11,7 @@ function SecNav() {
     <a class="nav-link text-white" href="/mensfashion">Men's Fashion</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-white" href="/womenfashion">Women's Fasion</a>
+    <a class="nav-link text-white" href="/womenfashion">Women's Fashion</a>
   </li>
   <li class="nav-item">
     <a class="nav-link text-white" href="/jewellery">Jewellery</a>

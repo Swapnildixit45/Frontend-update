@@ -7,12 +7,12 @@ import { Card } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Electronics from "./Images/Electronics.png"
-import Children from "./Images/Children's collection.png"
+import Men from "./Images/Men's Collection.png"
+import Women from "./Images/Women's Collection.png"
 import Accessories from "./Images/Accessories.png"
 import Watches from "./Images/Watches.png"
 import Beauty from "./Images/Beauty.png"
 import Jewellery from "./Images/Jewellery.png"
-import PropTypes from 'prop-types';
 
 
 function Home() {
@@ -37,7 +37,7 @@ function Home() {
                 <Col>
                     <div className="d-flex mt-3 mx-5">
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={Children} width="286" height="286" />
+                            <Card.Img variant="top" src={Men} width="286" height="286" />
                             <Card.Body className="text-center">
                                 <Card.Title className="text-center">Men's Fasion</Card.Title>
                                 <a variant="primary" type="btn" href='/mensfashion' className="btn btn-success">Explore</a>
@@ -61,7 +61,7 @@ function Home() {
                 <Col>
                     <div className="d-flex mt-3 mx-5">
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={Watches} width="286" height="286" />
+                            <Card.Img variant="top" src={Women} width="286" height="286" />
                             <Card.Body className="text-center">
                                 <Card.Title>Women's Fashion</Card.Title>
                                 <a variant="primary" type="btn" href='/womenfashion' className="btn btn-success">Explore</a>
