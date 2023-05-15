@@ -42,7 +42,7 @@ function Accessories() {
     }, [searchKeyword]);
 
     const fetchProducts = async () => {
-        const response = await fetch("http://localhost:4000/catalog/accessories");
+        const response = await fetch("https://nextgenbackend.onrender.com/catalog/accessories");
         const data = await response.json()
         setProducts(data.filter(product => product.title.toLowerCase().search(searchKeyword) !== -1))
 

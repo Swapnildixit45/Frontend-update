@@ -12,7 +12,7 @@ function ElectronicsList() {
   }, []);
 
   const fetchProducts = async () => {
-    const response = await axios.get("http://localhost:8082/catalog/electronics");
+    const response = await axios.get("https://nextgenbackend.onrender.com/catalog/electronics");
     const data = response.data;
     setProducts(data);
   };

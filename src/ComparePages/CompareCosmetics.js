@@ -12,7 +12,7 @@ function CosmeticsList() {
   }, []);
 
   const fetchProducts = async () => {
-    const response = await axios.get("http://localhost:8082/catalog/cosmetics");
+    const response = await axios.get("https://nextgenbackend.onrender.com/catalog/cosmetics");
     const data = response.data;
     setProducts(data);
   };

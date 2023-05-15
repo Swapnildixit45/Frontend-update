@@ -12,7 +12,7 @@ function JewelleryList() {
   }, []);
 
   const fetchProducts = async () => {
-    const response = await axios.get("http://localhost:8082/catalog/jewellery");
+    const response = await axios.get("https://nextgenbackend.onrender.com/catalog/jewellery");
     const data = response.data;
     setProducts(data);
   };

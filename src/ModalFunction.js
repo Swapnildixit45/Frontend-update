@@ -16,7 +16,7 @@ function ModalFunction() {
     const handleShow = () => setShow(true);
 
     const handleCheckout = async () => {
-            await fetch('http://localhost:4000/checkout', {
+            await fetch('https://nextgenbackend.onrender.com/checkout', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

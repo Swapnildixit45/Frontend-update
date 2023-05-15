@@ -12,7 +12,7 @@ function AccessoriesList() {
   }, []);
 
   const fetchProducts = async () => {
-    const response = await axios.get("http://localhost:8082/catalog/accessories");
+    const response = await axios.get("https://nextgenbackend.onrender.com/catalog/accessories");
     const data = response.data;
     setProducts(data);
   };

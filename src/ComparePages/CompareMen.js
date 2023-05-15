@@ -12,7 +12,7 @@ function MensList() {
   }, []);
 
   const fetchProducts = async () => {
-    const response = await axios.get("http://localhost:8082/catalog/mensFashion");
+    const response = await axios.get("https://nextgenbackend.onrender.com/catalog/mensFashion");
     const data = response.data;
     setProducts(data);
   };
