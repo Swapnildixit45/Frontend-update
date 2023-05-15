@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js"
@@ -9,12 +9,25 @@ import Logo from "./Images/Logo.png"
 import SecNav from './SecNav';
 import { useStateValue } from "./stateProvider";
 import ModalFunction from './ModalFunction';
-
+import PropTypes from 'prop-types';
 function Navbar() {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user,searchKeyword }, dispatch] = useStateValue();
+  const [localSearch,setLocalSearch] = useState("")
   const navigate = useNavigate();
+  
   function gotohome(){
     navigate('/')
+  }
+
+  const setSearchKeyword = () => {
+    dispatch({
+      type: "SET_SEARCH_KEYWORD",
+      searchKeyword: localSearch
+    })
+
+    localStorage.setItem("searchKeyword",localSearch)
+
+    console.log(searchKeyword)
   }
 
   const signOut = () => {
@@ -26,6 +39,8 @@ function Navbar() {
     localStorage.removeItem("user");
     navigate("/");
   };
+
+
   return (
     <><nav class="navbar navbar-expand-lg bg-dark variant-dark">
       <div class="container-fluid">
@@ -36,8 +51,8 @@ function Navbar() {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <form class="d-flex mt-3" role="search" style={{ width: "800px", height: "40px" }}>
-              <input class="form-control me-2 mx-4" type="search" placeholder="Search" aria-label="Search"></input>
-              <button class="btn btn-outline-transparent mx-3" type="submit" style={{color:"white"}}>
+              <input value={localSearch} onChange={e => setLocalSearch(e.target.value)} class="form-control me-2 mx-4" type="search" placeholder="Search" aria-label="Search"></input>
+              <button onClick={setSearchKeyword} class="btn btn-outline-transparent mx-3" type="submit" style={{color:"white"}}>
                 <SearchIcon />
               </button>
             </form>
