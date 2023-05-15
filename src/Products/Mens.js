@@ -41,7 +41,7 @@ function MensFashion() {
     }, [searchKeyword]);
 
     const fetchProducts = async () => {
-        const response = await fetch("http://localhost:8082/catalog/mensFashion");
+        const response = await fetch("http://localhost:4000/catalog/mensFashion");
         const data = await response.json()
         setProducts(data.filter(product => product.title.toLowerCase().search(searchKeyword) !== -1))
 

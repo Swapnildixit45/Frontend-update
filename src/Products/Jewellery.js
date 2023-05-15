@@ -41,7 +41,7 @@ function Jewellery() {
     }, [searchKeyword]);
 
     const fetchProducts = async () => {
-        const response = await fetch("http://localhost:8082/catalog/jewellery");
+        const response = await fetch("http://localhost:4000/catalog/jewellery");
         const data = await response.json()
         setProducts(data.filter(product => product.title.toLowerCase().search(searchKeyword) !== -1))
 
