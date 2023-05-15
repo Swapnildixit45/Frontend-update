@@ -27,7 +27,7 @@ const Register = () => {
   const [city, setCity] = useState("");
   const registerUser = async (event) => {
     event.preventDefault();
-    const response = await fetch("http://localhost:5000/users/signup", {
+    const response = await fetch("http://localhost:4000/users/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
