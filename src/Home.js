@@ -105,7 +105,7 @@ function Home() {
                 </Col>
             </Row> */}
             <Slider2/>
-            <h3 className='text-muted mx-5 mt-2'>All Products</h3>
+            {/* <h3 className='text-muted mx-5 mt-2'>All Products</h3> */}
             <Footer/>
             </div >
     )

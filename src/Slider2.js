@@ -28,11 +28,11 @@ import Carousel from 'react-bootstrap/Carousel';
 import HomeFirst from "./Slider2img/Slider2_1.svg"
 import HomeSecond from "./Slider2img/Slider2_2.svg"
 import HomeThird from "./Slider2img/Slider2_3.svg";
-import HomeFourth from "./Images/BW.svg"
+import HomeFourth from "./Slider2img/Slider2_4.svg";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Card } from 'react-bootstrap';
-import Electronics from "./Images/Electronics.png";
+import Summer from "./Images/Summer.png";
 function Slider() {
     return (
         <Row>
@@ -71,9 +71,9 @@ function Slider() {
             <Col>
                 <div className="d-flex mt-4 mx-5 mb-3 ml-5">
                     <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={Electronics} width="286" height="286" />
+                        <Card.Img variant="top" src={Summer} width="286" height="286" />
                         <Card.Body className="text-center">
-                            <Card.Title>Electronics</Card.Title>
+                            <Card.Title>SALE</Card.Title>
                             {/* <Button variant="primary" className="btn btn-success">Explore</Button> */}
                         </Card.Body>
                     </Card>

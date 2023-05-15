@@ -12,6 +12,7 @@ import Profile from "./Profile";
 import { CartProvider } from "./Cart/CartContext";
 import Cancel from "./StripePages/Cancel"
 import Success from "./StripePages/Success"
+import FavoriteIcon from "./FavoriteIcon"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<RegistrationForm />} />
+          <Route path="/compare" element={<FavoriteIcon />} />
           <Route path="/electronics" element={<Electronics />} />
           <Route path="/accessories" element={<Accessories />} />
           <Route path="/mensfashion" element={<Mens />} />

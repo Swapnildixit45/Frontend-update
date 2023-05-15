@@ -9,9 +9,9 @@ const Footer = () => {
           <div className="col-lg-5 col-md-12 mb-4 mb-md-0">
             <h5 className="text-uppercase">ABOUT US</h5>
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-              molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-              aliquam voluptatem veniam, est atque cumque eum delectus sint!
+            "Experience the future of shopping!" 
+            Our next-generation ecommerce platform brings you the latest technology, seamless user experience, at an unparalleled convenience of your own home.
+            "Enter a realm of endless shopping possibilities."
             </p>
           </div>
 

@@ -37,7 +37,7 @@ const Login = () => {
     const data = await response.json();
     console.log(typeof(data));
     console.log(typeof(data.user));
-    console.log(typeof(data.user.username));
+    
 
     if (data.user) {
       alert("Logged In");
