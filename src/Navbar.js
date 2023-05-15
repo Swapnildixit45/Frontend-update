@@ -9,7 +9,7 @@ import Logo from "./Images/Logo.png"
 import SecNav from './SecNav';
 import { useStateValue } from "./stateProvider";
 import ModalFunction from './ModalFunction';
-import PropTypes from 'prop-types';
+
 function Navbar() {
   const [{ user,searchKeyword }, dispatch] = useStateValue();
   const [localSearch,setLocalSearch] = useState("")

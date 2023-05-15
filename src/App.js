@@ -12,8 +12,13 @@ import Profile from "./Profile";
 import { CartProvider } from "./Cart/CartContext";
 import Cancel from "./StripePages/Cancel"
 import Success from "./StripePages/Success"
-import FavoriteIcon from "./FavoriteIcon"
-import React,{useState} from "react";
+import React from "react";
+import ElectronicsList from './ComparePages/CompareElectronics'
+import AccessoriesList from './ComparePages/CompareAccessories'
+import JewelleryList from './ComparePages/CompareJewellery'
+import CosmeticsList from './ComparePages/CompareCosmetics'
+import MensList from './ComparePages/CompareMen'
+import WomensList from './ComparePages/CompareWomen'
 
 function App() {
   return (
@@ -23,7 +28,6 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<RegistrationForm />} />
-          <Route path="/compare" element={<FavoriteIcon />} />
           <Route path="/electronics" element={<Electronics />} />
           <Route path="/accessories" element={<Accessories />} />
           <Route path="/mensfashion" element={<Mens />} />
@@ -33,6 +37,12 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/canceled" element={<Cancel />} />
           <Route path="/success" element={<Success />} />
+          <Route path="/compareElectronics" element={<ElectronicsList/>}/>
+          <Route path="/comparAaccessories" element={<AccessoriesList/>}/>
+          <Route path="/compareCosmetics" element={<CosmeticsList/>}/>
+          <Route path="/compareJewellery" element={<JewelleryList/>}/>
+          <Route path="/compareMen" element={<MensList/>}/>
+          <Route path="/compareWomen" element={<WomensList/>}/>
         </Routes>
       </div>
     </CartProvider>

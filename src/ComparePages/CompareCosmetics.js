@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./compare.css";
-import Navbar from "C:/nextgen-website/src/Navbar.js";
 
-function ProductList() {
+
+function CosmeticsList() {
   const [products, setProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState({});
 
@@ -12,7 +12,7 @@ function ProductList() {
   }, []);
 
   const fetchProducts = async () => {
-    const response = await axios.get("http://localhost:8082/catalog/products");
+    const response = await axios.get("http://localhost:8082/catalog/cosmetics");
     const data = response.data;
     setProducts(data);
   };
@@ -121,11 +121,10 @@ function ProductList() {
 
   return (
     <div className="product-list-container">
-      <Navbar />
       {renderProductDropdowns()}
       {renderSelectedProducts()}
     </div>
   );
 }
 
-export default ProductList;
+export default CosmeticsList;

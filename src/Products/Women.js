@@ -10,6 +10,7 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import Footer from "../Footer"
 import { CartContext } from "../Cart/CartContext";
 import { useStateValue } from "../stateProvider";
+import { useNavigate } from "react-router-dom";
 
 
 function WomenFashion() {
@@ -20,6 +21,11 @@ function WomenFashion() {
     const [sortBy, setSortBy] = useState("");
     const { addToCart } = useContext(CartContext);
     const [{ searchKeyword }, dispatch] = useStateValue();
+
+    const navigate = useNavigate()
+    function compare(){
+        navigate('/compareWomen')
+    }
 
     useEffect(() => {
         fetchProducts()
@@ -118,6 +124,11 @@ function WomenFashion() {
                             <div className="btn btn-bg-transparent">
                                 <Button variant="dark" onClick={sortProducts}>
                                     Filter
+                                </Button>
+                            </div>
+                            <div className="btn btn-bg-transparent">
+                                <Button variant="dark" onClick={compare}>
+                                    Compare
                                 </Button>
                             </div>
                         </div>
