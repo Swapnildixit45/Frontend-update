@@ -38,7 +38,7 @@ function App() {
           <Route path="/canceled" element={<Cancel />} />
           <Route path="/success" element={<Success />} />
           <Route path="/compareElectronics" element={<ElectronicsList/>}/>
-          <Route path="/comparAaccessories" element={<AccessoriesList/>}/>
+          <Route path="/compareAccessories" element={<AccessoriesList/>}/>
           <Route path="/compareCosmetics" element={<CosmeticsList/>}/>
           <Route path="/compareJewellery" element={<JewelleryList/>}/>
           <Route path="/compareMen" element={<MensList/>}/>
